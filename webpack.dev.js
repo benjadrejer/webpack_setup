@@ -26,4 +26,12 @@ module.exports = merge(common, {
       },
     ]
   },
+  devServer: {
+    before: function(app, server) {
+      server._watch('./src/**/*.html'); // Hot reloads for changes to .html files
+    },
+    contentBase: path.join(__dirname, 'src'), // only necessary if static files
+    port: 3000,
+    // host: '0.0.0.0', // Allow for wifi connections on the hosts local ip
+  },
 });
